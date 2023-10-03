@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-10-03T08:57:08.198Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36" etag="m53Ue15gok-5pWhGl855" version="22.0.1" type="github">
+<mxfile host="app.diagrams.net" modified="2023-10-03T09:05:29.474Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36" etag="N86b-vwthTx3bPOm87gA" version="22.0.1" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="954" dy="590" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="954" dy="642" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -116,7 +116,7 @@
             <mxPoint x="-90" y="75" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="iRJ-hSUjsVHFXjy98xv3-13" value="Item 2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="iRJ-hSUjsVHFXjy98xv3-11" vertex="1">
+        <mxCell id="iRJ-hSUjsVHFXjy98xv3-13" value="Start Position" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="iRJ-hSUjsVHFXjy98xv3-11" vertex="1">
           <mxGeometry y="30" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="iRJ-hSUjsVHFXjy98xv3-14" value="Final classification" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="iRJ-hSUjsVHFXjy98xv3-11" vertex="1">
@@ -191,11 +191,17 @@
         <mxCell id="YUmgbW3FY2QvhC1BkHih-2" value="Pilot(PID, Name, Nationality, Address,&amp;nbsp; birthdate, numPoints, &lt;u&gt;CID&lt;/u&gt;&amp;nbsp;-&amp;gt; Car)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=20;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="1075" y="600" width="670" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="2AQjQr2JM04QUjVPk78d-0" value="Race(RID, Date, numCircles)&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=20;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="1070" y="680" width="290" height="40" as="geometry" />
+        <mxCell id="2AQjQr2JM04QUjVPk78d-0" value="Race(RID, Date, numCircles, &lt;u&gt;CTID&lt;/u&gt;&amp;nbsp;-&amp;gt; Circuit)&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=20;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1080" y="640" width="430" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="2AQjQr2JM04QUjVPk78d-1" value="Circuit" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="1260" y="648" width="60" height="30" as="geometry" />
+        <mxCell id="2AQjQr2JM04QUjVPk78d-1" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Circuit(CTID, Name, Adress, Country, perimeter)&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1080" y="680" width="450" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2AQjQr2JM04QUjVPk78d-3" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Withdraw( NumCircles, Reason, &lt;u&gt;PID&lt;/u&gt;&amp;nbsp;-&amp;gt; Pilot, RID - Race)&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1075" y="720" width="530" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2AQjQr2JM04QUjVPk78d-4" value="Participation( Start position, final classification, &lt;u&gt;PID&lt;/u&gt;&amp;nbsp;- &amp;gt; Pilot ,&lt;u&gt;RID&lt;/u&gt;&amp;nbsp;-&amp;gt; Race)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=20;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1075" y="760" width="680" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
