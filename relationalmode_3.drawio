@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-10-17T09:32:10.351Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="QczHJzXHmyDJAWNGFuCI" version="22.0.4" type="github">
+<mxfile host="app.diagrams.net" modified="2023-10-17T09:38:43.058Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="1SExShW33XD1ahcsx-zp" version="22.0.4" type="github">
   <diagram name="Page-1" id="uRLkaWDIDxTYZGQuIfJK">
     <mxGraphModel dx="1804" dy="642" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -30,6 +30,18 @@
         </mxCell>
         <mxCell id="k0SVOES7Ee5cHP-5hgDJ-9" value="V* = { V }" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=20;" vertex="1" parent="1">
           <mxGeometry x="-5" y="450" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="k0SVOES7Ee5cHP-5hgDJ-11" value="{C,S}* = { C,S }" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="225" y="193" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="k0SVOES7Ee5cHP-5hgDJ-12" value="{C,J}* = { C, J , S }" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="225" y="240" width="190" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="k0SVOES7Ee5cHP-5hgDJ-13" value="{C,D}* = { C,D }" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="225" y="280" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="k0SVOES7Ee5cHP-5hgDJ-14" value="{C,S}* = { C,S }" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="225" y="320" width="160" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
