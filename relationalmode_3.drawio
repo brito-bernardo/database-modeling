@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-10-17T09:42:49.790Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="vZzK72gGEKOvbjv_mfup" version="22.0.4" type="github">
+<mxfile host="app.diagrams.net" modified="2023-10-17T09:49:56.441Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="uHLYtAxWtWdG3RE5U2E4" version="22.0.4" type="github">
   <diagram name="Page-1" id="uRLkaWDIDxTYZGQuIfJK">
     <mxGraphModel dx="1804" dy="642" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -60,6 +60,33 @@
         </mxCell>
         <mxCell id="k0SVOES7Ee5cHP-5hgDJ-20" value="R3( C, J, D, Q, V)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=20;" vertex="1" parent="1">
           <mxGeometry x="30" y="673" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="k0SVOES7Ee5cHP-5hgDJ-21" value="It&#39;s not a third normal form decomposition&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-5" y="738" width="250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k0SVOES7Ee5cHP-5hgDJ-22" value="R1( J, P , C)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="15" y="770" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="k0SVOES7Ee5cHP-5hgDJ-23" value="R2( S, D , P)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="10" y="810" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="k0SVOES7Ee5cHP-5hgDJ-24" value="R3( J, S)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="15" y="850" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="k0SVOES7Ee5cHP-5hgDJ-25" value="R4( Q, V , J , D)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="10" y="890" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="k0SVOES7Ee5cHP-5hgDJ-26" value="c)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="315" y="538" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k0SVOES7Ee5cHP-5hgDJ-27" value="JP -&amp;gt; C" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="360" y="550" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="k0SVOES7Ee5cHP-5hgDJ-28" value="d)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="315" y="638" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k0SVOES7Ee5cHP-5hgDJ-29" value="F1 = {&amp;nbsp; C -&amp;gt; CSJDPQV, JP -&amp;gt; C, SD -&amp;gt; P, J -&amp;gt; S }" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="330" y="680" width="460" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
