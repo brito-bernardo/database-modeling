@@ -1,12 +1,3 @@
-DROP TABLE IF EXISTS Gallery;
-CREATE TABLE Gallery (
-    IDGallery INTEGER PRIMARY KEY,
-    GalleryName TEXT NOT NULL,
-    Address TEXT NOT NULL,
-    Owner TEXT NOT NULL,
-    GalleryAmountEarned REAL CHECK(GalleryAmountEarned >= 0)
-);
-
 --Insertion Gallery dataset
 
 INSERT INTO Gallery (IDGallery, GalleryName, Address, Owner, GalleryAmountEarned) VALUES
@@ -30,17 +21,6 @@ INSERT INTO Gallery (IDGallery, GalleryName, Address, Owner, GalleryAmountEarned
 (18, 'Baroque Art Bureau', '287 Baroque Blvd, Elegantville', 'Avery Clark', 0),
 (19, 'Minimalist Art Museum', '188 Minimal Rd, Simple City', 'Scarlett Lewis', 0),
 (20, 'Neo-Classical Nook', '289 Neo St, NewClass City', 'Grace Walker', 0);
-
-
--- Create the Exhibition table
-DROP TABLE IF EXISTS Exhibition;
-CREATE TABLE Exhibition (
-    IDExhibition INTEGER PRIMARY KEY,
-    StartDate TEXT NOT NULL,
-    EndDate TEXT NOT NULL CHECK(EndDate >= StartDate),
-    IDGallery INTEGER NOT NULL,
-    FOREIGN KEY(IDGallery) REFERENCES Gallery(IDGallery)
-);
 
 -- Exhibition dataset
 
@@ -66,35 +46,6 @@ INSERT INTO Exhibition (IDExhibition, StartDate, EndDate, IDGallery) VALUES
 (19, '2024-01-15', '2024-03-15', 19),
 (20, '2024-03-16', '2024-05-15', 20);
 
--- Create the SingleArtistExhibition table
-DROP TABLE IF EXISTS SingleArtistExhibition;
-CREATE TABLE SingleArtistExhibition (
-    IDExhibition INTEGER PRIMARY KEY,
-    FOREIGN KEY(IDExhibition) REFERENCES Exhibition(IDExhibition)
-);
-
--- Create the MultiArtistExhibition table
-DROP TABLE IF EXISTS MultiArtistExhibition;
-CREATE TABLE MultiArtistExhibition (
-    IDExhibition INTEGER PRIMARY KEY,
-    FOREIGN KEY(IDExhibition) REFERENCES Exhibition(IDExhibition)
-);
-
--- Create the Sales table
-DROP TABLE IF EXISTS Sales;
-CREATE TABLE Sales (
-    IDSales INTEGER PRIMARY KEY,
-    Date TEXT NOT NULL,
-    TotalAmount REAL CHECK(TotalAmount >= 0),
-    ArtistAmount REAL CHECK(ArtistAmount >= 0),
-    GalleryAmount REAL CHECK(GalleryAmount >= 0),
-    Price REAL CHECK(Price >= 0),
-    IDCustomer INTEGER NOT NULL,
-    IDGallery INTEGER NOT NULL,
-    FOREIGN KEY(IDCustomer) REFERENCES Customer(IDCustomer),
-    FOREIGN KEY(IDGallery) REFERENCES Gallery(IDGallery) 
-);
-
 -- Sales dataset
 
 INSERT INTO Sales (IDSales, Date, TotalAmount, ArtistAmount, GalleryAmount, Price, IDCustomer, IDGallery) VALUES
@@ -118,25 +69,6 @@ INSERT INTO Sales (IDSales, Date, TotalAmount, ArtistAmount, GalleryAmount, Pric
 (18, '2024-06-20', 9500.00, 6650.00, 2850.00, 9500.00, 18, 9),
 (19, '2024-07-05', 10000.00, 7000.00, 3000.00, 10000.00, 19, 10),
 (20, '2024-08-25', 10500.00, 7350.00, 3150.00, 10500.00, 20, 10);
-
---Update Gallery Came first :p
-
-UPDATE Gallery
-SET GalleryAmountEarned = (
-    SELECT SUM(GalleryAmount)
-    FROM Sales
-    WHERE Sales.IDCustomer = Gallery.IDGallery
-);
-
-
--- Create the Customer table
-DROP TABLE IF EXISTS Customer;
-CREATE TABLE Customer (
-    IDCustomer INTEGER PRIMARY KEY,
-    Name TEXT NOT NULL,
-    Address TEXT NOT NULL,
-    TotalMoneySpent REAL CHECK(TotalMoneySpent >= 0)
-);
 
 -- Customer dataset
 
@@ -162,28 +94,11 @@ INSERT INTO Customer (IDCustomer, Name, Address, TotalMoneySpent) VALUES
 (19, 'Victoria Allen', '1954 River St, Meadowlands', 0),
 (20, 'Avery Thompson', '2057 Forest Ave, Creekside', 0);
 
--- Update the total money spent by each customer
-
-UPDATE Customer
-SET TotalMoneySpent = (
-    SELECT SUM(Price)
-    FROM Sales
-    WHERE Sales.IDCustomer = Customer.IDCustomer
-);
-
-
--- Create the Artist table
-DROP TABLE IF EXISTS Artist;
-CREATE TABLE Artist (
-    IDArtist INTEGER PRIMARY KEY,
-    Name TEXT NOT NULL,
-    Birthdate TEXT, -- Using TEXT for date
-    Birthplace TEXT NOT NULL,
-    StyleOfArt TEXT NOT NULL,
-    ArtistAmountEarned REAL CHECK(ArtistAmountEarned >= 0)
-);
+  
 
 -- Artist dataset
+
+
 
 INSERT INTO Artist (IDArtist, Name, Birthdate, Birthplace, StyleOfArt, ArtistAmountEarned) VALUES
 (1, 'Alex Taylor', '1980-02-15', 'Paris, France', 'Impressionism', 0),
@@ -206,33 +121,6 @@ INSERT INTO Artist (IDArtist, Name, Birthdate, Birthplace, StyleOfArt, ArtistAmo
 (18, 'Logan Garcia', '1989-02-07', 'Buenos Aires, Argentina', 'Surrealism', 0),
 (19, 'Lucas Martin', '1995-05-14', 'Shanghai, China', 'Ink Wash Painting', 0),
 (20, 'Mason Lee', '1994-10-25', 'Mumbai, India', 'Modernist', 0);
-
--- Update the total amount earned by each artist
-
-UPDATE Artist
-SET ArtistAmountEarned = (
-    SELECT SUM(Sales.ArtistAmount)
-    FROM Sales
-    JOIN Artwork ON Sales.IDSales = Artwork.IDSales
-    WHERE Artwork.IDArtist = Artist.IDArtist
-);
-
--- Create the Artwork table
-DROP TABLE IF EXISTS Artwork;
-CREATE TABLE Artwork (
-    IDArtwork INTEGER PRIMARY KEY,
-    Title TEXT NOT NULL,
-    YearMade INTEGER,
-    State TEXT NOT NULL,
-    IDTypeOfArt INTEGER NOT NULL,
-    IDSales INTEGER,
-    IDArtist INTEGER NOT NULL,
-    IDArtworkClassification INTEGER NOT NULL,
-    FOREIGN KEY(IDTypeOfArt) REFERENCES TypeOfArt(IDTypeOfArt),
-    FOREIGN KEY(IDSales) REFERENCES Sales(IDSales),
-    FOREIGN KEY(IDArtist) REFERENCES Artist(IDArtist),
-    FOREIGN KEY(IDArtworkClassification) REFERENCES ArtworkClassification(IDArtworkClassification)
-);
 
 -- Artwork dataset
 
@@ -258,28 +146,12 @@ INSERT INTO Artwork (IDArtwork, Title, YearMade, State, IDTypeOfArt, IDSales, ID
 (19, 'Cascade of Thoughts', 2017, 'Good', 1, 19, 19, 1),
 (20, 'Echoes of Time', 2022, 'Excellent', 2, 20, 20, 2);
 
-
-
--- Create the TypeOfArt table
-DROP TABLE IF EXISTS TypeOfArt;
-CREATE TABLE TypeOfArt (
-    IDTypeOfArt INTEGER PRIMARY KEY,
-    TypeName TEXT NOT NULL
-);
-
 -- TypeOfArt dataset
 
 INSERT INTO TypeOfArt (IDTypeOfArt, TypeName) VALUES
 (1, 'Pintura'),
 (2, 'Escultura'),
-(3, 'Fotografia');
-
--- Create the ArtworkClassification table
-DROP TABLE IF EXISTS ArtworkClassification;
-CREATE TABLE ArtworkClassification (
-    IDArtworkClassification INTEGER PRIMARY KEY,
-    ClassificationName TEXT NOT NULL
-);
+(3, 'Fotografia'); 
 
 -- ArtworkClassification dataset
 
@@ -287,15 +159,6 @@ INSERT INTO ArtworkClassification (IDArtworkClassification, ClassificationName) 
 (1, 'Clássico'),
 (2, 'Moderno'),
 (3, 'Contemporâneo');
-
--- Create the Employee table
-DROP TABLE IF EXISTS Employee;
-CREATE TABLE Employee (
-    IDEmployee INTEGER PRIMARY KEY,
-    EmployeeName TEXT NOT NULL,
-    Address TEXT NOT NULL,
-    PhoneNumber TEXT NOT NULL
-);
 
 -- Employee dataset
 
@@ -321,35 +184,31 @@ INSERT INTO Employee (IDEmployee, EmployeeName, Address, PhoneNumber) VALUES
 (19, 'Amelia Lewis', '1644 Fir Drive, Meadowlands', '555-0119'),
 (20, 'Harper Walker', '1747 Spruce Corner, Creekside', '555-0120');
 
+  
+--Update Gallery Came first :p
 
--- Create the GalleryEmployee table
-DROP TABLE IF EXISTS GalleryEmployee;
-CREATE TABLE GalleryEmployee (
-    IDEmployee INTEGER,
-    IDGallery INTEGER,
-    PRIMARY KEY(IDEmployee, IDGallery),
-    FOREIGN KEY(IDEmployee) REFERENCES Employee(IDEmployee),
-    FOREIGN KEY(IDGallery) REFERENCES Gallery(IDGallery)
+UPDATE Gallery
+SET GalleryAmountEarned = (
+    SELECT SUM(GalleryAmount)
+    FROM Sales
+    WHERE Sales.IDCustomer = Gallery.IDGallery
 );
 
--- Create the ArtworkArtworkClassification table
-DROP TABLE IF EXISTS ArtworkArtworkClassification;
-CREATE TABLE ArtworkArtworkClassification (
-    IDArtwork INTEGER,
-    IDArtworkClassification INTEGER,
-    PRIMARY KEY(IDArtwork, IDArtworkClassification),
-    FOREIGN KEY(IDArtwork) REFERENCES Artwork(IDArtwork), -- Composite key and foreign key to the Artwork table
-    FOREIGN KEY(IDArtworkClassification) REFERENCES ArtworkClassification(IDArtworkClassification) -- Foreign key to the ArtworkClassification table
+-- Update the total money spent by each customer
+
+UPDATE Customer
+SET TotalMoneySpent = (
+    SELECT SUM(Price)
+    FROM Sales
+    WHERE Sales.IDCustomer = Customer.IDCustomer
 );
 
--- Create the ArtworkExhibition table
-DROP TABLE IF EXISTS ArtworkExhibition;
-CREATE TABLE ArtworkExhibition (
-    IDArtwork INTEGER,
-    IDExhibition INTEGER,
-    PRIMARY KEY(IDArtwork, IDExhibition),
-    FOREIGN KEY(IDArtwork) REFERENCES Artwork(IDArtwork), -- Composite key and foreign key to the Artwork table
-    FOREIGN KEY(IDExhibition) REFERENCES Exhibition(IDExhibition) -- Foreign key to the Exhibition table
+-- Update the total amount earned by each artist
+
+UPDATE Artist
+SET ArtistAmountEarned = (
+    SELECT SUM(Sales.ArtistAmount)
+    FROM Sales
+    JOIN Artwork ON Sales.IDSales = Artwork.IDSales
+    WHERE Artwork.IDArtist = Artist.IDArtist
 );
-
-
