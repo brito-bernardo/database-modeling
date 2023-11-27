@@ -60,9 +60,22 @@ SELECT districts.code, districts.name, party, votes FROM votings, parties, distr
 
 -- How many votes had each party globally? As we want the global result, the administrative division is irrelevant. List the acronym of the party and the total number of votes, name 'VOTES'. Order ascendantly by the acronym. Sum votes for each party.
 
-SELECT party, SUM(votes) AS VOTES FROM votings GROUP BY party ORDER BY 1;
+SELECT party, SUM(votes) AS VOTES FROM votings GROUP BY party ORDER BY 1; -- CORRECT
 
--- What are the name of the municipalities of the district with the higher number of voters? Order ascendantly by the name of the municipality.
+-- What ARE the name of the municipalities of the district with the higher number of voters? Order ascendantly by the name of the municipality. Hint: use group in SQL. Try another solution without using group.
 
-SELECT name FROM municipalities WHERE code IN (SELECT district FROM participations WHERE voters = (SELECT MAX(voters) FROM participations)) ORDER BY 1;
+
+
+
+-- What was the party that had the highest number of votes in a single parish? List the acronym of the party, the name of the parish and the number of votes it obtained in that parish. Remember it's the HIGHEST, so it's only one party. SO PARTY, NAME AND VOTES.
+
+SELECT party, name, votes FROM votings, parishes WHERE votings.parish = parishes.code AND votes = (SELECT MAX(votes) FROM votings); -- CORRECT
+
+-- What are the acronyms of the parties that presented a list but obtained zero seats on all the districts that have an "o" or and "O" in its name? Order ascendantly by the acronym. Use count in SQL.
+
+
+
+-- Was there any party winning on all municipalities of a district? List the code and name of the district and the acronym of the party. Order ascendantly by code.
+
+
 
