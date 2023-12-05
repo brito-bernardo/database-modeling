@@ -50,13 +50,20 @@ SELECT acronym, designation FROM parties WHERE acronym NOT IN (SELECT party FROM
 SELECT COUNT(*) FROM parishes WHERE name LIKE "%Vilar%";
 
 --How many votes had each party in each muncipality? List the code and the name of the municipality, the acronym of the party and the number of votes (name this column as 'VOTES'), by incresing order on the code of the municipality and the acronym of the party. Show only the first 40 lines.
+
+SELECT municipalities.code, municipalities.name, party SUM(votes) AS VOTES FROM municipalities, votings, parishes WHERE parishes.municipality = muniipality.code AND votings.parish = parishes.code GROUP BY 1, 2, 3 ORDER BY 1 LIMIT 40;
+
+
+-- How many votes had each party per district? List the code of the district, the name of the district, the acronym of the party and the number of votes, named as 'VOTES'. Order ascendantly on the code of the district and the acronym of the party.
+
+SELECT districts.code, districts.name, party, SUM(votes) AS VOTES FROM districts, votings, parishes WHERE districts.code = parishes.district AND votings.parish = parishes.code GROUP BY 1, 2, 3 ORDER BY 1, 3;
+
 --This is wrong, but I don't know how to do it
 --Make the corrections, please!
 SELECT municipalities.code, municipalities.name, party, votes FROM votings, parties, municipalities WHERE votings.party = parties.acronym AND votings.parish IN (SELECT code FROM parishes WHERE municipality = municipalities.code) ORDER BY 1, 3 LIMIT 40;
 
--- How many votes had each party per district? List the code of the district, the name of the district, the acronym of the party and the number of votes, named as 'VOTES'. Order ascendantly on the code of the district and the acronym of the party.
 
-SELECT districts.code, districts.name, party, votes FROM votings, parties, districts WHERE votings.party = parties.acronym AND votings.parish IN (SELECT code FROM parishes WHERE municipality = municipalities.code) ORDER BY 1, 3;
+
 
 -- How many votes had each party globally? As we want the global result, the administrative division is irrelevant. List the acronym of the party and the total number of votes, name 'VOTES'. Order ascendantly by the acronym. Sum votes for each party.
 
@@ -71,11 +78,10 @@ SELECT party, SUM(votes) AS VOTES FROM votings GROUP BY party ORDER BY 1; -- COR
 
 SELECT party, name, votes FROM votings, parishes WHERE votings.parish = parishes.code AND votes = (SELECT MAX(votes) FROM votings); -- CORRECT
 
--- What are the acronyms of the parties that presented a list but obtained zero seats on all the districts that have an "o" or and "O" in its name? Order ascendantly by the acronym. Use count in SQL.
 
 
+-- Which parties had zero votes on all parishes of a municipality? List the acronym and the name of the municipality. Order ascendantly by the acronym and the name of the municipality. Show only "PARTY" and "name" of the municipality.
 
--- Was there any party winning on all municipalities of a district? List the code and name of the district and the acronym of the party. Order ascendantly by code.
 
 
 
